@@ -1,45 +1,129 @@
-.nutricao-item{
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-start;
-    padding:14px 0;
-    border-bottom:1px solid #1F1F2E;
-}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrição · MarinaFit Pro</title>
+    <link rel="stylesheet" href="../css/app.css">
+</head>
+<body>
 
-.nutricao-item:last-child{
-    border-bottom:none;
-}
+<div class="app">
 
-.nutricao-tipo{
-    display:block;
-    font-size:13px;
-    color:#C084FC;
-    font-weight:600;
-    margin-bottom:4px;
-}
+    <a href="dashboard.html" class="back-link">← Voltar</a>
 
-.nutricao-desc{
-    display:block;
-    font-size:15px;
-    font-weight:500;
-    margin-bottom:4px;
-}
+    <div class="page-header">
+        <h1>Nutrição</h1>
+        <p>Registre suas refeições do dia</p>
+    </div>
 
-.nutricao-cal{
-    display:inline-block;
-    font-size:12px;
-    color:#6B7280;
-    background:#0F1117;
-    border:1px solid #2D2D3F;
-    border-radius:999px;
-    padding:2px 10px;
-}
+    <div class="form-card">
+        <h3>Adicionar Refeição</h3>
+        <div class="form-group">
+            <label>Refeição</label>
+            <select id="tipoRefeicao">
+                <option value="Café da manhã">☀️ Café da manhã</option>
+                <option value="Lanche da manhã">🍎 Lanche da manhã</option>
+                <option value="Almoço">🍽️ Almoço</option>
+                <option value="Lanche da tarde">🥪 Lanche da tarde</option>
+                <option value="Jantar">🌙 Jantar</option>
+                <option value="Ceia">⭐ Ceia</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>O que você comeu?</label>
+            <input type="text" id="descricaoRefeicao" placeholder="ex: Arroz, feijão, frango grelhado">
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label>Calorias (opcional)</label>
+                <input type="number" id="caloriasRefeicao" placeholder="ex: 450">
+            </div>
+            <div class="form-group">
+                <label>Data</label>
+                <input type="date" id="dataRefeicao">
+            </div>
+        </div>
+        <button class="submit-btn" onclick="salvarRefeicao()">Adicionar Refeição</button>
+        <div id="msgNutricao"></div>
+    </div>
 
-.nutricao-total{
-    display:flex;
-    justify-content:space-between;
-    padding:14px 0 0 0;
-    font-weight:700;
-    color:#C084FC;
-    font-size:15px;
-}
+    <div class="form-card">
+        <h3>Refeições de Hoje</h3>
+        <div id="listaNutricao"></div>
+    </div>
+
+</div>
+
+<script>
+    document.getElementById("dataRefeicao").valueAsDate = new Date();
+
+    function salvarRefeicao() {
+        const tipo = document.getElementById("tipoRefeicao").value;
+        const descricao = document.getElementById("descricaoRefeicao").value;
+        const calorias = document.getElementById("caloriasRefeicao").value;
+        const data = document.getElementById("dataRefeicao").value;
+
+        if (!descricao) {
+            document.getElementById("msgNutricao").innerHTML = "⚠️ Descreva o que você comeu.";
+            return;
+        }
+
+        const registros = JSON.parse(localStorage.getItem("nutricao") || "[]");
+        registros.unshift({ tipo, descricao, calorias, data });
+        localStorage.setItem("nutricao", JSON.stringify(registros));
+
+        document.getElementById("descricaoRefeicao").value = "";
+        document.getElementById("caloriasRefeicao").value = "";
+        document.getElementById("msgNutricao").innerHTML = "✅ Refeição registrada!";
+
+        carregarRefeicoes();
+
+        setTimeout(() => {
+            document.getElementById("msgNutricao").innerHTML = "";
+        }, 2000);
+    }
+
+    function deletarRefeicao(index) {
+        const registros = JSON.parse(localStorage.getItem("nutricao") || "[]");
+        registros.splice(index, 1);
+        localStorage.setItem("nutricao", JSON.stringify(registros));
+        carregarRefeicoes();
+    }
+
+    function carregarRefeicoes() {
+        const registros = JSON.parse(localStorage.getItem("nutricao") || "[]");
+        const lista = document.getElementById("listaNutricao");
+
+        const hoje = new Date().toISOString().split("T")[0];
+        const deHoje = registros.filter(r => r.data === hoje);
+
+        if (deHoje.length === 0) {
+            lista.innerHTML = "<p style='color:#6B7280;font-size:14px;'>Nenhuma refeição registrada hoje.</p>";
+            return;
+        }
+
+        const totalCalorias = deHoje.reduce((acc, r) => acc + (parseInt(r.calorias) || 0), 0);
+
+        lista.innerHTML = deHoje.map((item, index) => `
+            <div class="nutricao-item">
+                <div>
+                    <span class="nutricao-tipo">${item.tipo}</span>
+                    <span class="nutricao-desc">${item.descricao}</span>
+                    ${item.calorias ? `<span class="nutricao-cal">${item.calorias} kcal</span>` : ""}
+                </div>
+                <button class="delete-btn" onclick="deletarRefeicao(${registros.indexOf(item)})">🗑️</button>
+            </div>
+        `).join("") + (totalCalorias > 0 ? `
+            <div class="nutricao-total">
+                <span>Total hoje</span>
+                <span>${totalCalorias} kcal</span>
+            </div>
+        ` : "");
+    }
+
+    carregarRefeicoes();
+</script>
+
+</body>
+</html>

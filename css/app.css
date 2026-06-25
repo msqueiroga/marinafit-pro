@@ -445,7 +445,8 @@ body{
 
 .delete-btn:hover{
     opacity:1;
-}.nutricao-item{
+}
+.nutricao-item{
     display:flex;
     justify-content:space-between;
     align-items:flex-start;

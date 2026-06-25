@@ -1,69 +1,89 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Avaliação Física</title>
-
-<link rel="stylesheet" href="../css/app.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliação Física · MarinaFit Pro</title>
+    <link rel="stylesheet" href="../css/app.css">
 </head>
-
 <body>
 
 <div class="app">
 
-<h1>Avaliação Física</h1>
+    <a href="dashboard.html" class="back-link">← Voltar</a>
 
-<form id="assessmentForm">
+    <div class="page-header">
+        <h1>Avaliação Física</h1>
+        <p>Preencha seus dados para personalizar os treinos</p>
+    </div>
 
-<label>Nome</label>
-<input type="text" id="nome">
+    <form id="assessmentForm">
 
-<label>Idade</label>
-<input type="number" id="idade">
+        <div class="form-card">
+            <h3>Dados Pessoais</h3>
 
-<label>Peso (kg)</label>
-<input type="number" id="peso">
+            <div class="form-group">
+                <label>Nome</label>
+                <input type="text" id="nome" placeholder="Seu nome" required>
+            </div>
 
-<label>Altura (cm)</label>
-<input type="number" id="altura">
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Idade</label>
+                    <input type="number" id="idade" placeholder="Anos">
+                </div>
+                <div class="form-group">
+                    <label>Peso (kg)</label>
+                    <input type="number" id="peso" placeholder="kg" step="0.1">
+                </div>
+            </div>
 
-<label>Objetivo</label>
-<select id="objetivo">
-<option>Definição</option>
-<option>Força</option>
-<option>Condicionamento</option>
-</select>
+            <div class="form-group">
+                <label>Altura (cm)</label>
+                <input type="number" id="altura" placeholder="cm">
+            </div>
+        </div>
 
-<h3>Dores / Limitações</h3>
+        <div class="form-card">
+            <h3>Objetivo Principal</h3>
+            <div class="form-group">
+                <select id="objetivo">
+                    <option value="">Selecione seu objetivo</option>
+                    <option value="Definição">Definição muscular</option>
+                    <option value="Força">Ganho de força</option>
+                    <option value="Condicionamento">Condicionamento físico</option>
+                </select>
+            </div>
+        </div>
 
-<label>
-<input type="checkbox" id="lombar">
- Lombar
-</label>
+        <div class="form-card">
+            <h3>Limitações Físicas</h3>
+            <p style="color:#6B7280;font-size:13px;margin-bottom:16px;">Selecione as áreas que precisam de atenção especial</p>
+            <div class="checkbox-group">
+                <label class="checkbox-item">
+                    <input type="checkbox" id="lombar">
+                    <span>🔴 Região lombar</span>
+                </label>
+                <label class="checkbox-item">
+                    <input type="checkbox" id="joelho">
+                    <span>🟡 Joelhos</span>
+                </label>
+                <label class="checkbox-item">
+                    <input type="checkbox" id="tornozelo">
+                    <span>🟢 Tornozelos</span>
+                </label>
+            </div>
+        </div>
 
-<label>
-<input type="checkbox" id="joelho">
- Joelho
-</label>
+        <button type="submit" class="submit-btn">Salvar Avaliação</button>
 
-<label>
-<input type="checkbox" id="tornozelo">
- Tornozelo
-</label>
+    </form>
 
-<button type="submit" class="primary-btn">
-Salvar Avaliação
-</button>
-
-</form>
-
-<div id="resultado"></div>
+    <div id="resultado"></div>
 
 </div>
 
 <script src="../js/storage.js"></script>
 
 </body>
-
 </html>

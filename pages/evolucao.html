@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evolução · MarinaFit Pro</title>
+    <link rel="stylesheet" href="../css/app.css">
+</head>
+<body>
+
+<div class="app">
+
+    <a href="dashboard.html" class="back-link">← Voltar</a>
+
+    <div class="page-header">
+        <h1>Evolução</h1>
+        <p>Acompanhe seu progresso ao longo do tempo</p>
+    </div>
+
+    <div class="form-card">
+        <h3>Registrar Peso</h3>
+        <div class="form-row">
+            <div class="form-group">
+                <label>Peso (kg)</label>
+                <input type="number" id="novoPeso" placeholder="ex: 57.5" step="0.1">
+            </div>
+            <div class="form-group">
+                <label>Data</label>
+                <input type="date" id="novaData">
+            </div>
+        </div>
+        <button class="submit-btn" onclick="registrarPeso()">Salvar Registro</button>
+        <div id="msgEvolucao"></div>
+    </div>
+
+    <div class="form-card" id="cardHistorico">
+        <h3>Histórico de Peso</h3>
+        <div id="listaEvolucao"></div>
+    </div>
+
+</div>
+
+<script>
+    // Preenche a data de hoje automaticamente
+    document.getElementById("novaData").valueAsDate = new Date();
+
+    function registrarPeso() {
+        const peso = document.getElementById("novoPeso").value;
+        const data = document.getElementById("novaData").value;
+
+        if (!peso || !data) {
+            document.getElementById("msgEvolucao").innerHTML = "⚠️ Preencha o peso e a data.";
+            return;
+        }
+
+        const historico = JSON.parse(localStorage.getItem("evolucaoPeso") || "[]");
+        historico.unshift({ peso, data });
+        localStorage.setItem("evolucaoPeso", JSON.stringify(historico));
+
+        document.getElementById("novoPeso").value = "";
+        document.getElementById("msgEvolucao").innerHTML = "✅ Registro salvo!";
+
+        carregarHistorico();
+
+        setTimeout(() => {
+            document.getElementById("msgEvolucao").innerHTML = "";
+        }, 2000);
+    }
+
+    function deletarRegistro(index) {
+        const historico = JSON.parse(localStorage.getItem("evolucaoPeso") || "[]");
+        historico.splice(index, 1);
+        localStorage.setItem("evolucaoPeso", JSON.stringify(historico));
+        carregarHistorico();
+    }
+
+    function carregarHistorico() {
+        const historico = JSON.parse(localStorage.getItem("evolucaoPeso") || "[]");
+        const lista = document.getElementById("listaEvolucao");
+
+        if (historico.length === 0) {
+            lista.innerHTML = "<p style='color:#6B7280;font-size:14px;'>Nenhum registro ainda.</p>";
+            return;
+        }
+
+        lista.innerHTML = historico.map((item, index) => {
+            const data = new Date(item.data + "T00:00:00").toLocaleDateString("pt-BR");
+            return `
+                <div class="evolucao-item">
+                    <div>
+                        <span class="evolucao-peso">${item.peso} kg</span>
+                        <span class="evolucao-data">${data}</span>
+                    </div>
+                    <button class="delete-btn" onclick="deletarRegistro(${index})">🗑️</button>
+                </div>
+            `;
+        }).join("");
+    }
+
+    carregarHistorico();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil · MarinaFit Pro</title>
+    <link rel="stylesheet" href="../css/app.css">
+</head>
+<body>
+
+<div class="app">
+
+    <a href="dashboard.html" class="back-link">← Voltar</a>
+
+    <div class="page-header">
+        <h1>Perfil</h1>
+        <p>Suas informações pessoais</p>
+    </div>
+
+    <div class="perfil-avatar-section">
+        <div class="perfil-avatar" id="perfilAvatar">M</div>
+        <label class="foto-btn" for="inputFoto">📷 Alterar foto</label>
+        <input type="file" id="inputFoto" accept="image/*" style="display:none" onchange="salvarFoto(this)">
+    </div>
+
+    <div class="form-card" id="cardPerfil">
+        <h3>Dados Salvos</h3>
+        <div id="dadosPerfil"></div>
+    </div>
+
+    <a href="avaliacao.html" class="submit-btn" style="display:block;text-align:center;text-decoration:none;margin-top:8px;">
+        ✏️ Editar Avaliação
+    </a>
+
+</div>
+
+<script>
+    function salvarFoto(input) {
+        const file = input.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            localStorage.setItem("fotoPerfil", e.target.result);
+            mostrarFoto(e.target.result);
+        };
+        reader.readAsDataURL(file);
+    }
+
+    function mostrarFoto(src) {
+        const avatar = document.getElementById("perfilAvatar");
+        avatar.innerHTML = `<img src="${src}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">`;
+    }
+
+    function carregarPerfil() {
+        const foto = localStorage.getItem("fotoPerfil");
+        if (foto) mostrarFoto(foto);
+
+        const saved = localStorage.getItem("userProfile");
+        const div = document.getElementById("dadosPerfil");
+
+        if (!saved) {
+            div.innerHTML = "<p style='color:#6B7280;font-size:14px;'>Nenhum dado salvo ainda. Faça sua avaliação física!</p>";
+            return;
+        }
+
+        const u = JSON.parse(saved);
+
+        const imc = u.peso && u.altura ? (u.peso / ((u.altura/100) * (u.altura/100))).toFixed(1) : null;
+
+        const limitacoes = [];
+        if (u.lombar) limitacoes.push("Lombar");
+        if (u.joelho) limitacoes.push("Joelho");
+        if (u.tornozelo) limitacoes.push("Tornozelo");
+
+        div.innerHTML = `
+            <div class="perfil-item">
+                <span class="perfil-label">Nome</span>
+                <span class="perfil-valor">${u.nome || "-"}</span>
+            </div>
+            <div class="perfil-item">
+                <span class="perfil-label">Idade</span>
+                <span class="perfil-valor">${u.idade ? u.idade + " anos" : "-"}</span>
+            </div>
+            <div class="perfil-item">
+                <span class="perfil-label">Peso</span>
+                <span class="perfil-valor">${u.peso ? u.peso + " kg" : "-"}</span>
+            </div>
+            <div class="perfil-item">
+                <span class="perfil-label">Altura</span>
+                <span class="perfil-valor">${u.altura ? u.altura + " cm" : "-"}</span>
+            </div>
+            ${imc ? `
+            <div class="perfil-item">
+                <span class="perfil-label">IMC</span>
+                <span class="perfil-valor">${imc}</span>
+            </div>` : ""}
+            <div class="perfil-item">
+                <span class="perfil-label">Objetivo</span>
+                <span class="perfil-valor">${u.objetivo || "-"}</span>
+            </div>
+            ${limitacoes.length > 0 ? `
+            <div class="perfil-item">
+                <span class="perfil-label">Limitações</span>
+                <span class="perfil-valor">${limitacoes.join(", ")}</span>
+            </div>` : ""}
+        `;
+    }
+
+    carregarPerfil();
+</script>
+
+</body>
+</html>

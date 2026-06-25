@@ -18,13 +18,14 @@
     </div>
 
     <div class="tab-group">
-        <button class="tab active" onclick="showTab('calistenia')">Calistenia</button>
-        <button class="tab" onclick="showTab('lombar')">Lombar</button>
-        <button class="tab" onclick="showTab('joelho')">Joelho</button>
-        <button class="tab" onclick="showTab('tornozelo')">Tornozelo</button>
+        <button class="tab active" onclick="showTab('calistenia', this)">Calistenia</button>
+        <button class="tab" onclick="showTab('lombar', this)">Lombar</button>
+        <button class="tab" onclick="showTab('joelho', this)">Joelho</button>
+        <button class="tab" onclick="showTab('tornozelo', this)">Tornozelo</button>
     </div>
 
     <div id="calistenia" class="tab-content">
+
         <div class="exercise-card">
             <div class="exercise-header">
                 <span class="exercise-icon">💪</span>
@@ -39,6 +40,7 @@
                 <span>10 repetições</span>
                 <span>60s descanso</span>
             </div>
+            <a href="https://www.youtube.com/results?search_query=flexao+de+braco+iniciante" target="_blank" class="video-btn">▶ Ver demonstração</a>
         </div>
 
         <div class="exercise-card">
@@ -55,6 +57,7 @@
                 <span>15 repetições</span>
                 <span>60s descanso</span>
             </div>
+            <a href="https://www.youtube.com/results?search_query=agachamento+correto+iniciante" target="_blank" class="video-btn">▶ Ver demonstração</a>
         </div>
 
         <div class="exercise-card">
@@ -71,6 +74,7 @@
                 <span>30 segundos</span>
                 <span>60s descanso</span>
             </div>
+            <a href="https://www.youtube.com/results?search_query=prancha+abdominal+como+fazer" target="_blank" class="video-btn">▶ Ver demonstração</a>
         </div>
 
         <div class="exercise-card">
@@ -87,10 +91,13 @@
                 <span>15 repetições</span>
                 <span>60s descanso</span>
             </div>
+            <a href="https://www.youtube.com/results?search_query=elevacao+de+quadril+gluteo" target="_blank" class="video-btn">▶ Ver demonstração</a>
         </div>
+
     </div>
 
     <div id="lombar" class="tab-content hidden">
+
         <div class="exercise-card">
             <div class="exercise-header">
                 <span class="exercise-icon">🧘</span>
@@ -105,6 +112,7 @@
                 <span>12 repetições</span>
                 <span>60s descanso</span>
             </div>
+            <a href="https://www.youtube.com/results?search_query=exercicio+superman+lombar" target="_blank" class="video-btn">▶ Ver demonstração</a>
         </div>
 
         <div class="exercise-card">
@@ -121,97 +129,8 @@
                 <span>10 repetições</span>
                 <span>45s descanso</span>
             </div>
+            <a href="https://www.youtube.com/results?search_query=exercicio+gato+vaca+coluna" target="_blank" class="video-btn">▶ Ver demonstração</a>
         </div>
 
         <div class="exercise-card">
-            <div class="exercise-header">
-                <span class="exercise-icon">🦅</span>
-                <div>
-                    <h3>Bird Dog</h3>
-                    <span class="exercise-level iniciante">Iniciante</span>
-                </div>
-            </div>
-            <p class="exercise-desc">Estabiliza a coluna e fortalece o core. Em quatro apoios, estenda braço e perna opostos.</p>
-            <div class="exercise-info">
-                <span>3 séries</span>
-                <span>10 repetições</span>
-                <span>60s descanso</span>
-            </div>
-        </div>
-    </div>
-
-    <div id="joelho" class="tab-content hidden">
-        <div class="exercise-card">
-            <div class="exercise-header">
-                <span class="exercise-icon">🦵</span>
-                <div>
-                    <h3>Extensão de Joelho</h3>
-                    <span class="exercise-level iniciante">Iniciante</span>
-                </div>
-            </div>
-            <p class="exercise-desc">Fortalece o quadríceps sem impacto. Sentada, estenda a perna lentamente.</p>
-            <div class="exercise-info">
-                <span>3 séries</span>
-                <span>15 repetições</span>
-                <span>60s descanso</span>
-            </div>
-        </div>
-
-        <div class="exercise-card">
-            <div class="exercise-header">
-                <span class="exercise-icon">🧱</span>
-                <div>
-                    <h3>Agachamento na Parede</h3>
-                    <span class="exercise-level iniciante">Iniciante</span>
-                </div>
-            </div>
-            <p class="exercise-desc">Fortalece sem sobrecarregar o joelho. Apoie as costas na parede e desça devagar.</p>
-            <div class="exercise-info">
-                <span>3 séries</span>
-                <span>30 segundos</span>
-                <span>60s descanso</span>
-            </div>
-        </div>
-    </div>
-
-    <div id="tornozelo" class="tab-content hidden">
-        <div class="exercise-card">
-            <div class="exercise-header">
-                <span class="exercise-icon">👟</span>
-                <div>
-                    <h3>Elevação de Panturrilha</h3>
-                    <span class="exercise-level iniciante">Iniciante</span>
-                </div>
-            </div>
-            <p class="exercise-desc">Fortalece panturrilha e estabiliza o tornozelo. Suba na ponta dos pés devagar.</p>
-            <div class="exercise-info">
-                <span>3 séries</span>
-                <span>15 repetições</span>
-                <span>60s descanso</span>
-            </div>
-        </div>
-
-        <div class="exercise-card">
-            <div class="exercise-header">
-                <span class="exercise-icon">⭕</span>
-                <div>
-                    <h3>Círculos com o Tornozelo</h3>
-                    <span class="exercise-level iniciante">Iniciante</span>
-                </div>
-            </div>
-            <p class="exercise-desc">Melhora a mobilidade do tornozelo. Faça círculos lentos nos dois sentidos.</p>
-            <div class="exercise-info">
-                <span>2 séries</span>
-                <span>10 círculos</span>
-                <span>30s descanso</span>
-            </div>
-        </div>
-    </div>
-
-</div>
-
-<script>
-function showTab(tab) {
-    document.querySelectorAll('.tab-content').forEach(t => t.classList.add('hidden'));
-    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-    document.getElementById(tab).classList.remove('hidden');
+            <div

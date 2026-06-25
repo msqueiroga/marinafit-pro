@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backup · MarinaFit Pro</title>
+    <link rel="stylesheet" href="../css/app.css">
+</head>
+<body>
+
+<div class="app">
+
+    <a href="dashboard.html" class="back-link">← Voltar</a>
+
+    <div class="page-header">
+        <h1>Backup</h1>
+        <p>Exporte e importe seus dados</p>
+    </div>
+
+    <div class="form-card">
+        <h3>Exportar Dados</h3>
+        <p style="color:#6B7280;font-size:14px;margin-bottom:16px;">Baixe um arquivo com todos os seus dados salvos no app.</p>
+        <button class="submit-btn" onclick="exportarDados()">⬇️ Baixar Backup</button>
+    </div>
+
+    <div class="form-card">
+        <h3>Importar Dados</h3>
+        <p style="color:#6B7280;font-size:14px;margin-bottom:16px;">Restaure seus dados a partir de um arquivo de backup.</p>
+        <label class="foto-btn" for="inputBackup" style="display:block;text-align:center;padding:14px;">📂 Selecionar arquivo</label>
+        <input type="file" id="inputBackup" accept=".json" style="display:none" onchange="importarDados(this)">
+        <div id="msgBackup" style="margin-top:12px;text-align:center;font-size:14px;"></div>
+    </div>
+
+    <div class="form-card">
+        <h3>Apagar Todos os Dados</h3>
+        <p style="color:#6B7280;font-size:14px;margin-bottom:16px;">Apaga permanentemente todos os dados do app. Faça um backup antes!</p>
+        <button class="delete-all-btn" onclick="apagarTudo()">🗑️ Apagar Tudo</button>
+    </div>
+
+</div>
+
+<script>
+    function exportarDados() {
+        const dados = {
+            userProfile: JSON.parse(localStorage.getItem("userProfile") || "null"),
+            evolucaoPeso: JSON.parse(localStorage.getItem("evolucaoPeso") || "[]"),
+            nutricao: JSON.parse(localStorage.getItem("nutricao") || "[]"),
+            dataExportacao: new Date().toLocaleDateString("pt-BR")
+        };
+
+        const json = JSON.stringify(dados, null, 2);
+        const blob = new Blob([json], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "marinafit-backup.json";
+        a.click();
+        URL.revokeObjectURL(url);
+    }
+
+    function importarDados(input) {
+        const file = input.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            try {
+                const dados = JSON.parse(e.target.result);
+
+                if (dados.userProfile) localStorage.setItem("userProfile", JSON.stringify(dados.userProfile));
+                if (dados.evolucaoPeso) localStorage.setItem("evolucaoPeso", JSON.stringify(dados.evolucaoPeso));
+                if (dados.nutricao) localStorage.setItem("nutricao", JSON.stringify(dados.nutricao));
+
+                document.getElementById("msgBackup").innerHTML = "✅ Dados restaurados com sucesso!";
+                document.getElementById("msgBackup").style.color = "#34D399";
+            } catch {
+                document.getElementById("msgBackup").innerHTML = "❌ Arquivo inválido.";
+                document.getElementById("msgBackup").style.color = "#F87171";
+            }
+        };
+        reader.readAsText(file);
+    }
+
+    function apagarTudo() {
+        if (confirm("Tem certeza? Todos os dados serão apagados permanentemente!")) {
+            localStorage.clear();
+            alert("Todos os dados foram apagados.");
+            window.location.href = "dashboard.html";
+        }
+    }
+</script>
+
+</body>
+</html>

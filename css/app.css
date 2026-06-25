@@ -392,7 +392,9 @@ body{
     padding:4px 12px;
     font-size:12px;
     color:#9CA3AF;
-}.video-btn{
+}
+
+.video-btn{
     display:inline-block;
     margin-top:14px;
     padding:8px 16px;
@@ -406,4 +408,41 @@ body{
 
 .video-btn:hover{
     opacity:0.85;
+}
+
+.evolucao-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:14px 0;
+    border-bottom:1px solid #1F1F2E;
+}
+
+.evolucao-item:last-child{
+    border-bottom:none;
+}
+
+.evolucao-peso{
+    font-size:18px;
+    font-weight:700;
+    display:block;
+    margin-bottom:4px;
+}
+
+.evolucao-data{
+    font-size:13px;
+    color:#6B7280;
+    display:block;
+}
+
+.delete-btn{
+    background:none;
+    border:none;
+    cursor:pointer;
+    font-size:18px;
+    opacity:0.6;
+}
+
+.delete-btn:hover{
+    opacity:1;
 }

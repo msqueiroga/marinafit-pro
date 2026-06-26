@@ -193,4 +193,64 @@ body{
     font-weight:700;
 }
 
-.page-header p{
+.page-header p{color:#9CA3AF;
+    font-size:14px;
+}
+
+.form-card{
+    background:#171923;
+    border-radius:18px;
+    padding:20px;
+    margin-bottom:16px;
+}
+
+.form-card h3{
+    font-size:16px;
+    font-weight:600;
+    margin-bottom:8px;
+}
+
+.submit-btn{
+    width:100%;
+    background:linear-gradient(135deg,#8B5CF6,#A855F7);
+    color:white;
+    border:none;
+    border-radius:14px;
+    padding:14px;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.submit-btn:hover{
+    opacity:0.9;
+}
+
+.delete-all-btn{
+    width:100%;
+    background:#1a0a0a;
+    color:#F87171;
+    border:1px solid #F87171;
+    border-radius:14px;
+    padding:14px;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.delete-all-btn:hover{
+    background:#2a1010;
+}
+
+.foto-btn{
+    background:#171923;
+    color:#C084FC;
+    border:1px dashed #8B5CF6;
+    border-radius:14px;
+    cursor:pointer;
+    font-size:14px;
+}
+
+.foto-btn:hover{
+    background:#1e1a2e;
+}

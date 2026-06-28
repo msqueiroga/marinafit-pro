@@ -38,9 +38,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const avatarEl = document.getElementById("avatarInitial");
     if (avatarEl && nome) avatarEl.textContent = nome.charAt(0).toUpperCase();
 
-});
-
-const fotoPerfil = localStorage.getItem("fotoPerfil");
+    const fotoPerfil = localStorage.getItem("fotoPerfil");
     if (avatarEl && fotoPerfil) {
         avatarEl.innerHTML = `<img src="${fotoPerfil}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">`;
     }
+
+});

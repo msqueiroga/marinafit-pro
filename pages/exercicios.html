@@ -5,6 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercícios · MarinaFit Pro</title>
     <link rel="stylesheet" href="../css/app.css">
+    <style>
+        .muscle-wrap {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin: 14px 0;
+        }
+        .muscle-view {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+        .muscle-label {
+            font-size: 10px;
+            color: #6B7280;
+            text-transform: uppercase;
+            letter-spacing: .6px;
+            font-weight: 600;
+        }
+        .muscle-legend {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 12px;
+        }
+        .muscle-legend span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 11px;
+            color: #9CA3AF;
+        }
+        .muscle-legend i {
+            width: 10px;
+            height: 10px;
+            border-radius: 2px;
+            display: inline-block;
+        }
+        .leg-primary { background: #EC4899; }
+        .leg-secondary { background: #8B5CF6; }
+        .leg-inactive { background: #2D2D4E; }
+    </style>
 </head>
 <body>
 <div class="app">
@@ -22,73 +65,447 @@
         <button class="tab" onclick="showTab('tornozelo', this)">Tornozelo</button>
     </div>
 
+    <!-- ===== CALISTENIA ===== -->
     <div id="calistenia" class="tab-content">
+
         <div class="exercise-card">
             <div class="exercise-header">
                 <span class="exercise-icon">💪</span>
                 <div><h3>Flexão de Braço</h3><span class="exercise-level">Iniciante</span></div>
             </div>
             <p class="exercise-desc">Fortalece peito, ombros e tríceps. Mantenha o corpo reto durante o movimento.</p>
+            <div class="muscle-wrap">
+                <div class="muscle-view">
+                    <span class="muscle-label">Frente</span>
+                    <svg width="70" height="155" viewBox="0 0 70 155" xmlns="http://www.w3.org/2000/svg">
+                        <defs><linearGradient id="p1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#8B5CF6"/><stop offset="100%" stop-color="#EC4899"/></linearGradient></defs>
+                        <!-- cabeça -->
+                        <ellipse cx="35" cy="12" rx="9" ry="10" fill="#252535" stroke="#4B5563" stroke-width="1"/>
+                        <!-- pescoço -->
+                        <rect x="31" y="21" width="8" height="7" rx="2" fill="#252535" stroke="#4B5563" stroke-width=".5"/>
+                        <!-- ombros ATIVO -->
+                        <ellipse cx="17" cy="34" rx="9" ry="6" fill="url(#p1)" opacity=".9"/>
+                        <ellipse cx="53" cy="34" rx="9" ry="6" fill="url(#p1)" opacity=".9"/>
+                        <!-- torso base -->
+                        <path d="M21 28 Q35 25 49 28 L52 70 Q35 75 18 70Z" fill="#1A1A2E" stroke="#374151" stroke-width=".8"/>
+                        <!-- peitoral ATIVO -->
+                        <path d="M22 31 Q28 29 35 33 L35 48 Q28 51 22 47Z" fill="url(#p1)" opacity=".9"/>
+                        <path d="M35 33 Q42 29 48 31 L48 47 Q42 51 35 48Z" fill="url(#p1)" opacity=".9"/>
+                        <!-- abs inativo -->
+                        <rect x="27" y="51" width="6" height="5" rx="1.5" fill="#2D2D4E" stroke="#3D3D6E" stroke-width=".5"/>
+                        <rect x="36" y="51" width="6" height="5" rx="1.5" fill="#2D2D4E" stroke="#3D3D6E" stroke-width=".5"/>
+                        <rect x="27" y="58" width="6" height="5" rx="1.5" fill="#2D2D4E" stroke="#3D3D6E" stroke-width=".5"/>
+                        <rect x="36" y="58" width="6" height="5" rx="1.5" fill="#2D2D4E" stroke="#3D3D6E" stroke-width=".5"/>
+                        <!-- bíceps SECUNDÁRIO -->
+                        <path d="M13 28 Q8 33 7 46 Q9 55 13 59 Q17 55 18 46 Q20 35 17 28Z" fill="#8B5CF6" opacity=".6"/>
+                        <path d="M57 28 Q62 33 63 46 Q61 55 57 59 Q53 55 52 46 Q50 35 53 28Z" fill="#8B5CF6" opacity=".6"/>
+                        <!-- antebraços -->
+                        <path d="M7 47 Q5 58 6 68 Q9 70 12 68 Q13 58 12 47Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <path d="M63 47 Q65 58 64 68 Q61 70 58 68 Q57 58 58 47Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <!-- quadril -->
+                        <path d="M18 70 Q35 75 52 70 L50 84 Q35 88 20 84Z" fill="#1A1A2E" stroke="#374151" stroke-width=".5"/>
+                        <!-- coxas -->
+                        <rect x="19" y="83" width="12" height="26" rx="6" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <rect x="39" y="83" width="12" height="26" rx="6" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <!-- joelhos -->
+                        <ellipse cx="25" cy="112" rx="6" ry="3.5" fill="#151525" stroke="#374151" stroke-width=".5"/>
+                        <ellipse cx="45" cy="112" rx="6" ry="3.5" fill="#151525" stroke="#374151" stroke-width=".5"/>
+                        <!-- canelas -->
+                        <rect x="20" y="115" width="10" height="22" rx="5" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <rect x="40" y="115" width="10" height="22" rx="5" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <!-- pés -->
+                        <ellipse cx="25" cy="139" rx="8" ry="3.5" fill="#1A1A2E" stroke="#374151" stroke-width=".5"/>
+                        <ellipse cx="45" cy="139" rx="8" ry="3.5" fill="#1A1A2E" stroke="#374151" stroke-width=".5"/>
+                    </svg>
+                </div>
+                <div class="muscle-view">
+                    <span class="muscle-label">Costas</span>
+                    <svg width="70" height="155" viewBox="0 0 70 155" xmlns="http://www.w3.org/2000/svg">
+                        <defs><linearGradient id="p2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#8B5CF6"/><stop offset="100%" stop-color="#EC4899"/></linearGradient></defs>
+                        <ellipse cx="35" cy="12" rx="9" ry="10" fill="#252535" stroke="#4B5563" stroke-width="1"/>
+                        <rect x="31" y="21" width="8" height="7" rx="2" fill="#252535" stroke="#4B5563" stroke-width=".5"/>
+                        <ellipse cx="17" cy="34" rx="9" ry="6" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <ellipse cx="53" cy="34" rx="9" ry="6" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <!-- trapézio -->
+                        <path d="M25 26 Q35 22 45 26 L47 38 Q35 42 23 38Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <!-- torso -->
+                        <path d="M21 28 Q35 25 49 28 L52 70 Q35 75 18 70Z" fill="#1A1A2E" stroke="#374151" stroke-width=".8"/>
+                        <!-- tríceps ATIVO -->
+                        <path d="M13 28 Q8 33 7 46 Q9 55 13 59 Q17 55 18 46 Q20 35 17 28Z" fill="url(#p2)" opacity=".9"/>
+                        <path d="M57 28 Q62 33 63 46 Q61 55 57 59 Q53 55 52 46 Q50 35 53 28Z" fill="url(#p2)" opacity=".9"/>
+                        <!-- dorsais -->
+                        <path d="M21 34 Q26 32 31 38 L29 62 Q22 60 19 54Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <path d="M49 34 Q44 32 39 38 L41 62 Q48 60 51 54Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <!-- lombar -->
+                        <path d="M27 55 Q35 52 43 55 L43 70 Q35 73 27 70Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <!-- antebraços -->
+                        <path d="M7 47 Q5 58 6 68 Q9 70 12 68 Q13 58 12 47Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <path d="M63 47 Q65 58 64 68 Q61 70 58 68 Q57 58 58 47Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <!-- quadril -->
+                        <path d="M18 70 Q35 75 52 70 L50 84 Q35 88 20 84Z" fill="#1A1A2E" stroke="#374151" stroke-width=".5"/>
+                        <!-- glúteos -->
+                        <ellipse cx="26" cy="86" rx="8" ry="7" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <ellipse cx="44" cy="86" rx="8" ry="7" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <!-- isquios -->
+                        <rect x="19" y="91" width="12" height="21" rx="6" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <rect x="39" y="91" width="12" height="21" rx="6" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <ellipse cx="25" cy="114" rx="6" ry="3.5" fill="#151525" stroke="#374151" stroke-width=".5"/>
+                        <ellipse cx="45" cy="114" rx="6" ry="3.5" fill="#151525" stroke="#374151" stroke-width=".5"/>
+                        <rect x="20" y="117" width="10" height="20" rx="5" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <rect x="40" y="117" width="10" height="20" rx="5" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <ellipse cx="25" cy="139" rx="8" ry="3.5" fill="#1A1A2E" stroke="#374151" stroke-width=".5"/>
+                        <ellipse cx="45" cy="139" rx="8" ry="3.5" fill="#1A1A2E" stroke="#374151" stroke-width=".5"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="muscle-legend">
+                <span><i class="leg-primary"></i>Principal</span>
+                <span><i class="leg-secondary"></i>Secundário</span>
+                <span><i class="leg-inactive"></i>Inativo</span>
+            </div>
             <div class="exercise-info"><span>3 séries</span><span>10 repetições</span><span>60s descanso</span></div>
             <a href="https://www.youtube.com/results?search_query=flexao+de+braco+iniciante" target="_blank" class="video-btn">▶ Ver demonstração</a>
         </div>
+
         <div class="exercise-card">
             <div class="exercise-header">
                 <span class="exercise-icon">🦵</span>
                 <div><h3>Agachamento</h3><span class="exercise-level">Iniciante</span></div>
             </div>
             <p class="exercise-desc">Fortalece quadríceps, glúteos e isquiotibiais. Desça até 90 graus.</p>
+            <div class="muscle-wrap">
+                <div class="muscle-view">
+                    <span class="muscle-label">Frente</span>
+                    <svg width="70" height="155" viewBox="0 0 70 155" xmlns="http://www.w3.org/2000/svg">
+                        <defs><linearGradient id="aq1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#8B5CF6"/><stop offset="100%" stop-color="#EC4899"/></linearGradient></defs>
+                        <ellipse cx="35" cy="12" rx="9" ry="10" fill="#252535" stroke="#4B5563" stroke-width="1"/>
+                        <rect x="31" y="21" width="8" height="7" rx="2" fill="#252535" stroke="#4B5563" stroke-width=".5"/>
+                        <ellipse cx="17" cy="34" rx="9" ry="6" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <ellipse cx="53" cy="34" rx="9" ry="6" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <path d="M21 28 Q35 25 49 28 L52 70 Q35 75 18 70Z" fill="#1A1A2E" stroke="#374151" stroke-width=".8"/>
+                        <path d="M22 31 Q28 29 35 33 L35 48 Q28 51 22 47Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <path d="M35 33 Q42 29 48 31 L48 47 Q42 51 35 48Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <rect x="27" y="51" width="6" height="5" rx="1.5" fill="#2D2D4E" stroke="#3D3D6E" stroke-width=".5"/>
+                        <rect x="36" y="51" width="6" height="5" rx="1.5" fill="#2D2D4E" stroke="#3D3D6E" stroke-width=".5"/>
+                        <rect x="27" y="58" width="6" height="5" rx="1.5" fill="#2D2D4E" stroke="#3D3D6E" stroke-width=".5"/>
+                        <rect x="36" y="58" width="6" height="5" rx="1.5" fill="#2D2D4E" stroke="#3D3D6E" stroke-width=".5"/>
+                        <path d="M13 28 Q8 33 7 46 Q9 55 13 59 Q17 55 18 46 Q20 35 17 28Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <path d="M57 28 Q62 33 63 46 Q61 55 57 59 Q53 55 52 46 Q50 35 53 28Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <path d="M7 47 Q5 58 6 68 Q9 70 12 68 Q13 58 12 47Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <path d="M63 47 Q65 58 64 68 Q61 70 58 68 Q57 58 58 47Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <path d="M18 70 Q35 75 52 70 L50 84 Q35 88 20 84Z" fill="#1A1A2E" stroke="#374151" stroke-width=".5"/>
+                        <!-- quadríceps ATIVO -->
+                        <rect x="19" y="83" width="12" height="26" rx="6" fill="url(#aq1)" opacity=".9"/>
+                        <rect x="39" y="83" width="12" height="26" rx="6" fill="url(#aq1)" opacity=".9"/>
+                        <ellipse cx="25" cy="112" rx="6" ry="3.5" fill="#151525" stroke="#374151" stroke-width=".5"/>
+                        <ellipse cx="45" cy="112" rx="6" ry="3.5" fill="#151525" stroke="#374151" stroke-width=".5"/>
+                        <rect x="20" y="115" width="10" height="22" rx="5" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <rect x="40" y="115" width="10" height="22" rx="5" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <ellipse cx="25" cy="139" rx="8" ry="3.5" fill="#1A1A2E" stroke="#374151" stroke-width=".5"/>
+                        <ellipse cx="45" cy="139" rx="8" ry="3.5" fill="#1A1A2E" stroke="#374151" stroke-width=".5"/>
+                    </svg>
+                </div>
+                <div class="muscle-view">
+                    <span class="muscle-label">Costas</span>
+                    <svg width="70" height="155" viewBox="0 0 70 155" xmlns="http://www.w3.org/2000/svg">
+                        <defs><linearGradient id="aq2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#8B5CF6"/><stop offset="100%" stop-color="#EC4899"/></linearGradient></defs>
+                        <ellipse cx="35" cy="12" rx="9" ry="10" fill="#252535" stroke="#4B5563" stroke-width="1"/>
+                        <rect x="31" y="21" width="8" height="7" rx="2" fill="#252535" stroke="#4B5563" stroke-width=".5"/>
+                        <ellipse cx="17" cy="34" rx="9" ry="6" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <ellipse cx="53" cy="34" rx="9" ry="6" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <path d="M25 26 Q35 22 45 26 L47 38 Q35 42 23 38Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <path d="M21 28 Q35 25 49 28 L52 70 Q35 75 18 70Z" fill="#1A1A2E" stroke="#374151" stroke-width=".8"/>
+                        <path d="M13 28 Q8 33 7 46 Q9 55 13 59 Q17 55 18 46 Q20 35 17 28Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <path d="M57 28 Q62 33 63 46 Q61 55 57 59 Q53 55 52 46 Q50 35 53 28Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <path d="M21 34 Q26 32 31 38 L29 62 Q22 60 19 54Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <path d="M49 34 Q44 32 39 38 L41 62 Q48 60 51 54Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <path d="M27 55 Q35 52 43 55 L43 70 Q35 73 27 70Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <path d="M7 47 Q5 58 6 68 Q9 70 12 68 Q13 58 12 47Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <path d="M63 47 Q65 58 64 68 Q61 70 58 68 Q57 58 58 47Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <path d="M18 70 Q35 75 52 70 L50 84 Q35 88 20 84Z" fill="#1A1A2E" stroke="#374151" stroke-width=".5"/>
+                        <!-- glúteos ATIVO -->
+                        <ellipse cx="26" cy="86" rx="8" ry="7" fill="url(#aq2)" opacity=".9"/>
+                        <ellipse cx="44" cy="86" rx="8" ry="7" fill="url(#aq2)" opacity=".9"/>
+                        <!-- isquiotibiais ATIVO -->
+                        <rect x="19" y="91" width="12" height="21" rx="6" fill="url(#aq2)" opacity=".7"/>
+                        <rect x="39" y="91" width="12" height="21" rx="6" fill="url(#aq2)" opacity=".7"/>
+                        <ellipse cx="25" cy="114" rx="6" ry="3.5" fill="#151525" stroke="#374151" stroke-width=".5"/>
+                        <ellipse cx="45" cy="114" rx="6" ry="3.5" fill="#151525" stroke="#374151" stroke-width=".5"/>
+                        <rect x="20" y="117" width="10" height="20" rx="5" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <rect x="40" y="117" width="10" height="20" rx="5" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <ellipse cx="25" cy="139" rx="8" ry="3.5" fill="#1A1A2E" stroke="#374151" stroke-width=".5"/>
+                        <ellipse cx="45" cy="139" rx="8" ry="3.5" fill="#1A1A2E" stroke="#374151" stroke-width=".5"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="muscle-legend">
+                <span><i class="leg-primary"></i>Principal</span>
+                <span><i class="leg-secondary"></i>Secundário</span>
+                <span><i class="leg-inactive"></i>Inativo</span>
+            </div>
             <div class="exercise-info"><span>3 séries</span><span>15 repetições</span><span>60s descanso</span></div>
             <a href="https://www.youtube.com/results?search_query=agachamento+correto+iniciante" target="_blank" class="video-btn">▶ Ver demonstração</a>
         </div>
+
         <div class="exercise-card">
             <div class="exercise-header">
                 <span class="exercise-icon">🏃</span>
                 <div><h3>Prancha</h3><span class="exercise-level">Iniciante</span></div>
             </div>
             <p class="exercise-desc">Fortalece o core e estabiliza a coluna. Mantenha o abdômen contraído.</p>
+            <div class="muscle-wrap">
+                <div class="muscle-view">
+                    <span class="muscle-label">Frente</span>
+                    <svg width="70" height="155" viewBox="0 0 70 155" xmlns="http://www.w3.org/2000/svg">
+                        <defs><linearGradient id="pr1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#8B5CF6"/><stop offset="100%" stop-color="#EC4899"/></linearGradient></defs>
+                        <ellipse cx="35" cy="12" rx="9" ry="10" fill="#252535" stroke="#4B5563" stroke-width="1"/>
+                        <rect x="31" y="21" width="8" height="7" rx="2" fill="#252535" stroke="#4B5563" stroke-width=".5"/>
+                        <ellipse cx="17" cy="34" rx="9" ry="6" fill="#8B5CF6" opacity=".5"/>
+                        <ellipse cx="53" cy="34" rx="9" ry="6" fill="#8B5CF6" opacity=".5"/>
+                        <path d="M21 28 Q35 25 49 28 L52 70 Q35 75 18 70Z" fill="#1A1A2E" stroke="#374151" stroke-width=".8"/>
+                        <path d="M22 31 Q28 29 35 33 L35 48 Q28 51 22 47Z" fill="#8B5CF6" opacity=".5"/>
+                        <path d="M35 33 Q42 29 48 31 L48 47 Q42 51 35 48Z" fill="#8B5CF6" opacity=".5"/>
+                        <!-- abdômen ATIVO -->
+                        <rect x="27" y="51" width="6" height="5" rx="1.5" fill="url(#pr1)" opacity=".9"/>
+                        <rect x="36" y="51" width="6" height="5" rx="1.5" fill="url(#pr1)" opacity=".9"/>
+                        <rect x="27" y="58" width="6" height="5" rx="1.5" fill="url(#pr1)" opacity=".9"/>
+                        <rect x="36" y="58" width="6" height="5" rx="1.5" fill="url(#pr1)" opacity=".9"/>
+                        <path d="M13 28 Q8 33 7 46 Q9 55 13 59 Q17 55 18 46 Q20 35 17 28Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <path d="M57 28 Q62 33 63 46 Q61 55 57 59 Q53 55 52 46 Q50 35 53 28Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <path d="M7 47 Q5 58 6 68 Q9 70 12 68 Q13 58 12 47Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <path d="M63 47 Q65 58 64 68 Q61 70 58 68 Q57 58 58 47Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <path d="M18 70 Q35 75 52 70 L50 84 Q35 88 20 84Z" fill="#1A1A2E" stroke="#374151" stroke-width=".5"/>
+                        <rect x="19" y="83" width="12" height="26" rx="6" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <rect x="39" y="83" width="12" height="26" rx="6" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <ellipse cx="25" cy="112" rx="6" ry="3.5" fill="#151525" stroke="#374151" stroke-width=".5"/>
+                        <ellipse cx="45" cy="112" rx="6" ry="3.5" fill="#151525" stroke="#374151" stroke-width=".5"/>
+                        <rect x="20" y="115" width="10" height="22" rx="5" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <rect x="40" y="115" width="10" height="22" rx="5" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <ellipse cx="25" cy="139" rx="8" ry="3.5" fill="#1A1A2E" stroke="#374151" stroke-width=".5"/>
+                        <ellipse cx="45" cy="139" rx="8" ry="3.5" fill="#1A1A2E" stroke="#374151" stroke-width=".5"/>
+                    </svg>
+                </div>
+                <div class="muscle-view">
+                    <span class="muscle-label">Costas</span>
+                    <svg width="70" height="155" viewBox="0 0 70 155" xmlns="http://www.w3.org/2000/svg">
+                        <defs><linearGradient id="pr2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#8B5CF6"/><stop offset="100%" stop-color="#EC4899"/></linearGradient></defs>
+                        <ellipse cx="35" cy="12" rx="9" ry="10" fill="#252535" stroke="#4B5563" stroke-width="1"/>
+                        <rect x="31" y="21" width="8" height="7" rx="2" fill="#252535" stroke="#4B5563" stroke-width=".5"/>
+                        <ellipse cx="17" cy="34" rx="9" ry="6" fill="#8B5CF6" opacity=".5"/>
+                        <ellipse cx="53" cy="34" rx="9" ry="6" fill="#8B5CF6" opacity=".5"/>
+                        <path d="M25 26 Q35 22 45 26 L47 38 Q35 42 23 38Z" fill="#8B5CF6" opacity=".5"/>
+                        <path d="M21 28 Q35 25 49 28 L52 70 Q35 75 18 70Z" fill="#1A1A2E" stroke="#374151" stroke-width=".8"/>
+                        <path d="M13 28 Q8 33 7 46 Q9 55 13 59 Q17 55 18 46 Q20 35 17 28Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <path d="M57 28 Q62 33 63 46 Q61 55 57 59 Q53 55 52 46 Q50 35 53 28Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <path d="M21 34 Q26 32 31 38 L29 62 Q22 60 19 54Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <path d="M49 34 Q44 32 39 38 L41 62 Q48 60 51 54Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <!-- lombar ATIVO -->
+                        <path d="M27 55 Q35 52 43 55 L43 70 Q35 73 27 70Z" fill="url(#pr2)" opacity=".9"/>
+                        <path d="M7 47 Q5 58 6 68 Q9 70 12 68 Q13 58 12 47Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <path d="M63 47 Q65 58 64 68 Q61 70 58 68 Q57 58 58 47Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <path d="M18 70 Q35 75 52 70 L50 84 Q35 88 20 84Z" fill="#1A1A2E" stroke="#374151" stroke-width=".5"/>
+                        <ellipse cx="26" cy="86" rx="8" ry="7" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <ellipse cx="44" cy="86" rx="8" ry="7" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <rect x="19" y="91" width="12" height="21" rx="6" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <rect x="39" y="91" width="12" height="21" rx="6" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <ellipse cx="25" cy="114" rx="6" ry="3.5" fill="#151525" stroke="#374151" stroke-width=".5"/>
+                        <ellipse cx="45" cy="114" rx="6" ry="3.5" fill="#151525" stroke="#374151" stroke-width=".5"/>
+                        <rect x="20" y="117" width="10" height="20" rx="5" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <rect x="40" y="117" width="10" height="20" rx="5" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <ellipse cx="25" cy="139" rx="8" ry="3.5" fill="#1A1A2E" stroke="#374151" stroke-width=".5"/>
+                        <ellipse cx="45" cy="139" rx="8" ry="3.5" fill="#1A1A2E" stroke="#374151" stroke-width=".5"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="muscle-legend">
+                <span><i class="leg-primary"></i>Principal</span>
+                <span><i class="leg-secondary"></i>Secundário</span>
+                <span><i class="leg-inactive"></i>Inativo</span>
+            </div>
             <div class="exercise-info"><span>3 séries</span><span>30 segundos</span><span>60s descanso</span></div>
             <a href="https://www.youtube.com/results?search_query=prancha+abdominal+como+fazer" target="_blank" class="video-btn">▶ Ver demonstração</a>
         </div>
+
         <div class="exercise-card">
             <div class="exercise-header">
                 <span class="exercise-icon">⬆️</span>
                 <div><h3>Elevação de Quadril</h3><span class="exercise-level">Iniciante</span></div>
             </div>
             <p class="exercise-desc">Ativa glúteos e isquiotibiais. Deite de costas e eleve o quadril.</p>
+            <div class="muscle-wrap">
+                <div class="muscle-view">
+                    <span class="muscle-label">Costas</span>
+                    <svg width="70" height="155" viewBox="0 0 70 155" xmlns="http://www.w3.org/2000/svg">
+                        <defs><linearGradient id="eq1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#8B5CF6"/><stop offset="100%" stop-color="#EC4899"/></linearGradient></defs>
+                        <ellipse cx="35" cy="12" rx="9" ry="10" fill="#252535" stroke="#4B5563" stroke-width="1"/>
+                        <rect x="31" y="21" width="8" height="7" rx="2" fill="#252535" stroke="#4B5563" stroke-width=".5"/>
+                        <ellipse cx="17" cy="34" rx="9" ry="6" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <ellipse cx="53" cy="34" rx="9" ry="6" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <path d="M25 26 Q35 22 45 26 L47 38 Q35 42 23 38Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <path d="M21 28 Q35 25 49 28 L52 70 Q35 75 18 70Z" fill="#1A1A2E" stroke="#374151" stroke-width=".8"/>
+                        <path d="M13 28 Q8 33 7 46 Q9 55 13 59 Q17 55 18 46 Q20 35 17 28Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <path d="M57 28 Q62 33 63 46 Q61 55 57 59 Q53 55 52 46 Q50 35 53 28Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <path d="M21 34 Q26 32 31 38 L29 62 Q22 60 19 54Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <path d="M49 34 Q44 32 39 38 L41 62 Q48 60 51 54Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <path d="M27 55 Q35 52 43 55 L43 70 Q35 73 27 70Z" fill="#8B5CF6" opacity=".5"/>
+                        <path d="M7 47 Q5 58 6 68 Q9 70 12 68 Q13 58 12 47Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <path d="M63 47 Q65 58 64 68 Q61 70 58 68 Q57 58 58 47Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <path d="M18 70 Q35 75 52 70 L50 84 Q35 88 20 84Z" fill="#1A1A2E" stroke="#374151" stroke-width=".5"/>
+                        <!-- glúteos ATIVO -->
+                        <ellipse cx="26" cy="86" rx="8" ry="7" fill="url(#eq1)" opacity=".9"/>
+                        <ellipse cx="44" cy="86" rx="8" ry="7" fill="url(#eq1)" opacity=".9"/>
+                        <!-- isquiotibiais ATIVO -->
+                        <rect x="19" y="91" width="12" height="21" rx="6" fill="url(#eq1)" opacity=".7"/>
+                        <rect x="39" y="91" width="12" height="21" rx="6" fill="url(#eq1)" opacity=".7"/>
+                        <ellipse cx="25" cy="114" rx="6" ry="3.5" fill="#151525" stroke="#374151" stroke-width=".5"/>
+                        <ellipse cx="45" cy="114" rx="6" ry="3.5" fill="#151525" stroke="#374151" stroke-width=".5"/>
+                        <rect x="20" y="117" width="10" height="20" rx="5" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <rect x="40" y="117" width="10" height="20" rx="5" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <ellipse cx="25" cy="139" rx="8" ry="3.5" fill="#1A1A2E" stroke="#374151" stroke-width=".5"/>
+                        <ellipse cx="45" cy="139" rx="8" ry="3.5" fill="#1A1A2E" stroke="#374151" stroke-width=".5"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="muscle-legend">
+                <span><i class="leg-primary"></i>Principal</span>
+                <span><i class="leg-secondary"></i>Secundário</span>
+                <span><i class="leg-inactive"></i>Inativo</span>
+            </div>
             <div class="exercise-info"><span>3 séries</span><span>15 repetições</span><span>60s descanso</span></div>
             <a href="https://www.youtube.com/results?search_query=elevacao+de+quadril+gluteo" target="_blank" class="video-btn">▶ Ver demonstração</a>
         </div>
+
         <div class="exercise-card">
             <div class="exercise-header">
                 <span class="exercise-icon">🤸</span>
                 <div><h3>Burpee</h3><span class="exercise-level">Intermediário</span></div>
             </div>
             <p class="exercise-desc">Exercício completo que trabalha força e condicionamento. Combine agachamento, prancha e salto.</p>
+            <div class="muscle-wrap">
+                <div class="muscle-view">
+                    <span class="muscle-label">Frente</span>
+                    <svg width="70" height="155" viewBox="0 0 70 155" xmlns="http://www.w3.org/2000/svg">
+                        <defs><linearGradient id="bu1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#8B5CF6"/><stop offset="100%" stop-color="#EC4899"/></linearGradient></defs>
+                        <ellipse cx="35" cy="12" rx="9" ry="10" fill="#252535" stroke="#4B5563" stroke-width="1"/>
+                        <rect x="31" y="21" width="8" height="7" rx="2" fill="#252535" stroke="#4B5563" stroke-width=".5"/>
+                        <ellipse cx="17" cy="34" rx="9" ry="6" fill="url(#bu1)" opacity=".9"/>
+                        <ellipse cx="53" cy="34" rx="9" ry="6" fill="url(#bu1)" opacity=".9"/>
+                        <path d="M21 28 Q35 25 49 28 L52 70 Q35 75 18 70Z" fill="#1A1A2E" stroke="#374151" stroke-width=".8"/>
+                        <path d="M22 31 Q28 29 35 33 L35 48 Q28 51 22 47Z" fill="url(#bu1)" opacity=".9"/>
+                        <path d="M35 33 Q42 29 48 31 L48 47 Q42 51 35 48Z" fill="url(#bu1)" opacity=".9"/>
+                        <rect x="27" y="51" width="6" height="5" rx="1.5" fill="url(#bu1)" opacity=".8"/>
+                        <rect x="36" y="51" width="6" height="5" rx="1.5" fill="url(#bu1)" opacity=".8"/>
+                        <rect x="27" y="58" width="6" height="5" rx="1.5" fill="url(#bu1)" opacity=".8"/>
+                        <rect x="36" y="58" width="6" height="5" rx="1.5" fill="url(#bu1)" opacity=".8"/>
+                        <path d="M13 28 Q8 33 7 46 Q9 55 13 59 Q17 55 18 46 Q20 35 17 28Z" fill="url(#bu1)" opacity=".7"/>
+                        <path d="M57 28 Q62 33 63 46 Q61 55 57 59 Q53 55 52 46 Q50 35 53 28Z" fill="url(#bu1)" opacity=".7"/>
+                        <path d="M7 47 Q5 58 6 68 Q9 70 12 68 Q13 58 12 47Z" fill="#8B5CF6" opacity=".5"/>
+                        <path d="M63 47 Q65 58 64 68 Q61 70 58 68 Q57 58 58 47Z" fill="#8B5CF6" opacity=".5"/>
+                        <path d="M18 70 Q35 75 52 70 L50 84 Q35 88 20 84Z" fill="#1A1A2E" stroke="#374151" stroke-width=".5"/>
+                        <rect x="19" y="83" width="12" height="26" rx="6" fill="url(#bu1)" opacity=".9"/>
+                        <rect x="39" y="83" width="12" height="26" rx="6" fill="url(#bu1)" opacity=".9"/>
+                        <ellipse cx="25" cy="112" rx="6" ry="3.5" fill="#151525" stroke="#374151" stroke-width=".5"/>
+                        <ellipse cx="45" cy="112" rx="6" ry="3.5" fill="#151525" stroke="#374151" stroke-width=".5"/>
+                        <rect x="20" y="115" width="10" height="22" rx="5" fill="#8B5CF6" opacity=".5"/>
+                        <rect x="40" y="115" width="10" height="22" rx="5" fill="#8B5CF6" opacity=".5"/>
+                        <ellipse cx="25" cy="139" rx="8" ry="3.5" fill="#1A1A2E" stroke="#374151" stroke-width=".5"/>
+                        <ellipse cx="45" cy="139" rx="8" ry="3.5" fill="#1A1A2E" stroke="#374151" stroke-width=".5"/>
+                    </svg>
+                </div>
+                <div class="muscle-view">
+                    <span class="muscle-label">Costas</span>
+                    <svg width="70" height="155" viewBox="0 0 70 155" xmlns="http://www.w3.org/2000/svg">
+                        <defs><linearGradient id="bu2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#8B5CF6"/><stop offset="100%" stop-color="#EC4899"/></linearGradient></defs>
+                        <ellipse cx="35" cy="12" rx="9" ry="10" fill="#252535" stroke="#4B5563" stroke-width="1"/>
+                        <rect x="31" y="21" width="8" height="7" rx="2" fill="#252535" stroke="#4B5563" stroke-width=".5"/>
+                        <ellipse cx="17" cy="34" rx="9" ry="6" fill="url(#bu2)" opacity=".8"/>
+                        <ellipse cx="53" cy="34" rx="9" ry="6" fill="url(#bu2)" opacity=".8"/>
+                        <path d="M25 26 Q35 22 45 26 L47 38 Q35 42 23 38Z" fill="url(#bu2)" opacity=".8"/>
+                        <path d="M21 28 Q35 25 49 28 L52 70 Q35 75 18 70Z" fill="#1A1A2E" stroke="#374151" stroke-width=".8"/>
+                        <path d="M13 28 Q8 33 7 46 Q9 55 13 59 Q17 55 18 46 Q20 35 17 28Z" fill="url(#bu2)" opacity=".8"/>
+                        <path d="M57 28 Q62 33 63 46 Q61 55 57 59 Q53 55 52 46 Q50 35 53 28Z" fill="url(#bu2)" opacity=".8"/>
+                        <path d="M21 34 Q26 32 31 38 L29 62 Q22 60 19 54Z" fill="url(#bu2)" opacity=".7"/>
+                        <path d="M49 34 Q44 32 39 38 L41 62 Q48 60 51 54Z" fill="url(#bu2)" opacity=".7"/>
+                        <path d="M27 55 Q35 52 43 55 L43 70 Q35 73 27 70Z" fill="url(#bu2)" opacity=".8"/>
+                        <path d="M7 47 Q5 58 6 68 Q9 70 12 68 Q13 58 12 47Z" fill="#8B5CF6" opacity=".5"/>
+                        <path d="M63 47 Q65 58 64 68 Q61 70 58 68 Q57 58 58 47Z" fill="#8B5CF6" opacity=".5"/>
+                        <path d="M18 70 Q35 75 52 70 L50 84 Q35 88 20 84Z" fill="#1A1A2E" stroke="#374151" stroke-width=".5"/>
+                        <ellipse cx="26" cy="86" rx="8" ry="7" fill="url(#bu2)" opacity=".9"/>
+                        <ellipse cx="44" cy="86" rx="8" ry="7" fill="url(#bu2)" opacity=".9"/>
+                        <rect x="19" y="91" width="12" height="21" rx="6" fill="url(#bu2)" opacity=".8"/>
+                        <rect x="39" y="91" width="12" height="21" rx="6" fill="url(#bu2)" opacity=".8"/>
+                        <ellipse cx="25" cy="114" rx="6" ry="3.5" fill="#151525" stroke="#374151" stroke-width=".5"/>
+                        <ellipse cx="45" cy="114" rx="6" ry="3.5" fill="#151525" stroke="#374151" stroke-width=".5"/>
+                        <rect x="20" y="117" width="10" height="20" rx="5" fill="#8B5CF6" opacity=".5"/>
+                        <rect x="40" y="117" width="10" height="20" rx="5" fill="#8B5CF6" opacity=".5"/>
+                        <ellipse cx="25" cy="139" rx="8" ry="3.5" fill="#1A1A2E" stroke="#374151" stroke-width=".5"/>
+                        <ellipse cx="45" cy="139" rx="8" ry="3.5" fill="#1A1A2E" stroke="#374151" stroke-width=".5"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="muscle-legend">
+                <span><i class="leg-primary"></i>Principal</span>
+                <span><i class="leg-secondary"></i>Secundário</span>
+                <span><i class="leg-inactive"></i>Inativo</span>
+            </div>
             <div class="exercise-info"><span>3 séries</span><span>10 repetições</span><span>90s descanso</span></div>
             <a href="https://www.youtube.com/results?search_query=burpee+como+fazer" target="_blank" class="video-btn">▶ Ver demonstração</a>
         </div>
-        <div class="exercise-card">
-            <div class="exercise-header">
-                <span class="exercise-icon">🧗</span>
-                <div><h3>Escalador</h3><span class="exercise-level">Intermediário</span></div>
-            </div>
-            <p class="exercise-desc">Fortalece core, ombros e quadril. Em posição de prancha, alterne os joelhos ao peito rapidamente.</p>
-            <div class="exercise-info"><span>3 séries</span><span>20 repetições</span><span>60s descanso</span></div>
-            <a href="https://www.youtube.com/results?search_query=mountain+climber+escalador" target="_blank" class="video-btn">▶ Ver demonstração</a>
-        </div>
+
     </div>
 
+    <!-- ===== LOMBAR ===== -->
     <div id="lombar" class="tab-content" style="display:none">
+
         <div class="exercise-card">
             <div class="exercise-header">
                 <span class="exercise-icon">🧘</span>
                 <div><h3>Superman</h3><span class="exercise-level">Iniciante</span></div>
             </div>
             <p class="exercise-desc">Fortalece a musculatura lombar. Deite de bruços e eleve braços e pernas simultaneamente.</p>
+            <div class="muscle-wrap">
+                <div class="muscle-view">
+                    <span class="muscle-label">Costas</span>
+                    <svg width="70" height="155" viewBox="0 0 70 155" xmlns="http://www.w3.org/2000/svg">
+                        <defs><linearGradient id="su1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#8B5CF6"/><stop offset="100%" stop-color="#EC4899"/></linearGradient></defs>
+                        <ellipse cx="35" cy="12" rx="9" ry="10" fill="#252535" stroke="#4B5563" stroke-width="1"/>
+                        <rect x="31" y="21" width="8" height="7" rx="2" fill="#252535" stroke="#4B5563" stroke-width=".5"/>
+                        <ellipse cx="17" cy="34" rx="9" ry="6" fill="#8B5CF6" opacity=".5"/>
+                        <ellipse cx="53" cy="34" rx="9" ry="6" fill="#8B5CF6" opacity=".5"/>
+                        <path d="M25 26 Q35 22 45 26 L47 38 Q35 42 23 38Z" fill="#8B5CF6" opacity=".5"/>
+                        <path d="M21 28 Q35 25 49 28 L52 70 Q35 75 18 70Z" fill="#1A1A2E" stroke="#374151" stroke-width=".8"/>
+                        <path d="M13 28 Q8 33 7 46 Q9 55 13 59 Q17 55 18 46 Q20 35 17 28Z" fill="#8B5CF6" opacity=".5"/>
+                        <path d="M57 28 Q62 33 63 46 Q61 55 57 59 Q53 55 52 46 Q50 35 53 28Z" fill="#8B5CF6" opacity=".5"/>
+                        <path d="M21 34 Q26 32 31 38 L29 62 Q22 60 19 54Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <path d="M49 34 Q44 32 39 38 L41 62 Q48 60 51 54Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <!-- lombar ATIVO -->
+                        <path d="M27 55 Q35 52 43 55 L43 70 Q35 73 27 70Z" fill="url(#su1)" opacity=".95"/>
+                        <path d="M7 47 Q5 58 6 68 Q9 70 12 68 Q13 58 12 47Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <path d="M63 47 Q65 58 64 68 Q61 70 58 68 Q57 58 58 47Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <path d="M18 70 Q35 75 52 70 L50 84 Q35 88 20 84Z" fill="#1A1A2E" stroke="#374151" stroke-width=".5"/>
+                        <!-- glúteos ATIVO -->
+                        <ellipse cx="26" cy="86" rx="8" ry="7" fill="url(#su1)" opacity=".8"/>
+                        <ellipse cx="44" cy="86" rx="8" ry="7" fill="url(#su1)" opacity=".8"/>
+                        <rect x="19" y="91" width="12" height="21" rx="6" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <rect x="39" y="91" width="12" height="21" rx="6" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <ellipse cx="25" cy="114" rx="6" ry="3.5" fill="#151525" stroke="#374151" stroke-width=".5"/>
+                        <ellipse cx="45" cy="114" rx="6" ry="3.5" fill="#151525" stroke="#374151" stroke-width=".5"/>
+                        <rect x="20" y="117" width="10" height="20" rx="5" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <rect x="40" y="117" width="10" height="20" rx="5" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <ellipse cx="25" cy="139" rx="8" ry="3.5" fill="#1A1A2E" stroke="#374151" stroke-width=".5"/>
+                        <ellipse cx="45" cy="139" rx="8" ry="3.5" fill="#1A1A2E" stroke="#374151" stroke-width=".5"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="muscle-legend">
+                <span><i class="leg-primary"></i>Principal</span>
+                <span><i class="leg-secondary"></i>Secundário</span>
+                <span><i class="leg-inactive"></i>Inativo</span>
+            </div>
             <div class="exercise-info"><span>3 séries</span><span>12 repetições</span><span>60s descanso</span></div>
             <a href="https://www.youtube.com/results?search_query=exercicio+superman+lombar" target="_blank" class="video-btn">▶ Ver demonstração</a>
         </div>
+
         <div class="exercise-card">
             <div class="exercise-header">
                 <span class="exercise-icon">🐱</span>
@@ -98,6 +515,7 @@
             <div class="exercise-info"><span>2 séries</span><span>10 repetições</span><span>45s descanso</span></div>
             <a href="https://www.youtube.com/results?search_query=exercicio+gato+vaca+coluna" target="_blank" class="video-btn">▶ Ver demonstração</a>
         </div>
+
         <div class="exercise-card">
             <div class="exercise-header">
                 <span class="exercise-icon">🦋</span>
@@ -107,6 +525,7 @@
             <div class="exercise-info"><span>3 séries</span><span>10 repetições</span><span>45s descanso</span></div>
             <a href="https://www.youtube.com/results?search_query=bird+dog+exercicio+lombar" target="_blank" class="video-btn">▶ Ver demonstração</a>
         </div>
+
         <div class="exercise-card">
             <div class="exercise-header">
                 <span class="exercise-icon">🌉</span>
@@ -116,6 +535,7 @@
             <div class="exercise-info"><span>3 séries</span><span>15 repetições</span><span>45s descanso</span></div>
             <a href="https://www.youtube.com/results?search_query=ponte+gluteo+lombar" target="_blank" class="video-btn">▶ Ver demonstração</a>
         </div>
+
         <div class="exercise-card">
             <div class="exercise-header">
                 <span class="exercise-icon">🧎</span>
@@ -125,18 +545,60 @@
             <div class="exercise-info"><span>2 séries</span><span>30 segundos</span><span>30s descanso</span></div>
             <a href="https://www.youtube.com/results?search_query=alongamento+lombar+joelhos+peito" target="_blank" class="video-btn">▶ Ver demonstração</a>
         </div>
+
     </div>
 
+    <!-- ===== JOELHO ===== -->
     <div id="joelho" class="tab-content" style="display:none">
+
         <div class="exercise-card">
             <div class="exercise-header">
                 <span class="exercise-icon">🦵</span>
                 <div><h3>Agachamento Parcial</h3><span class="exercise-level">Iniciante</span></div>
             </div>
             <p class="exercise-desc">Fortalece quadríceps sem sobrecarregar o joelho. Desça apenas até 45 graus.</p>
+            <div class="muscle-wrap">
+                <div class="muscle-view">
+                    <span class="muscle-label">Frente</span>
+                    <svg width="70" height="155" viewBox="0 0 70 155" xmlns="http://www.w3.org/2000/svg">
+                        <defs><linearGradient id="jo1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#8B5CF6"/><stop offset="100%" stop-color="#EC4899"/></linearGradient></defs>
+                        <ellipse cx="35" cy="12" rx="9" ry="10" fill="#252535" stroke="#4B5563" stroke-width="1"/>
+                        <rect x="31" y="21" width="8" height="7" rx="2" fill="#252535" stroke="#4B5563" stroke-width=".5"/>
+                        <ellipse cx="17" cy="34" rx="9" ry="6" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <ellipse cx="53" cy="34" rx="9" ry="6" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <path d="M21 28 Q35 25 49 28 L52 70 Q35 75 18 70Z" fill="#1A1A2E" stroke="#374151" stroke-width=".8"/>
+                        <path d="M22 31 Q28 29 35 33 L35 48 Q28 51 22 47Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <path d="M35 33 Q42 29 48 31 L48 47 Q42 51 35 48Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <rect x="27" y="51" width="6" height="5" rx="1.5" fill="#2D2D4E" stroke="#3D3D6E" stroke-width=".5"/>
+                        <rect x="36" y="51" width="6" height="5" rx="1.5" fill="#2D2D4E" stroke="#3D3D6E" stroke-width=".5"/>
+                        <rect x="27" y="58" width="6" height="5" rx="1.5" fill="#2D2D4E" stroke="#3D3D6E" stroke-width=".5"/>
+                        <rect x="36" y="58" width="6" height="5" rx="1.5" fill="#2D2D4E" stroke="#3D3D6E" stroke-width=".5"/>
+                        <path d="M13 28 Q8 33 7 46 Q9 55 13 59 Q17 55 18 46 Q20 35 17 28Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <path d="M57 28 Q62 33 63 46 Q61 55 57 59 Q53 55 52 46 Q50 35 53 28Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <path d="M7 47 Q5 58 6 68 Q9 70 12 68 Q13 58 12 47Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <path d="M63 47 Q65 58 64 68 Q61 70 58 68 Q57 58 58 47Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <path d="M18 70 Q35 75 52 70 L50 84 Q35 88 20 84Z" fill="#1A1A2E" stroke="#374151" stroke-width=".5"/>
+                        <!-- quadríceps ATIVO -->
+                        <rect x="19" y="83" width="12" height="26" rx="6" fill="url(#jo1)" opacity=".9"/>
+                        <rect x="39" y="83" width="12" height="26" rx="6" fill="url(#jo1)" opacity=".9"/>
+                        <ellipse cx="25" cy="112" rx="6" ry="3.5" fill="#151525" stroke="#374151" stroke-width=".5"/>
+                        <ellipse cx="45" cy="112" rx="6" ry="3.5" fill="#151525" stroke="#374151" stroke-width=".5"/>
+                        <rect x="20" y="115" width="10" height="22" rx="5" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <rect x="40" y="115" width="10" height="22" rx="5" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <ellipse cx="25" cy="139" rx="8" ry="3.5" fill="#1A1A2E" stroke="#374151" stroke-width=".5"/>
+                        <ellipse cx="45" cy="139" rx="8" ry="3.5" fill="#1A1A2E" stroke="#374151" stroke-width=".5"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="muscle-legend">
+                <span><i class="leg-primary"></i>Principal</span>
+                <span><i class="leg-secondary"></i>Secundário</span>
+                <span><i class="leg-inactive"></i>Inativo</span>
+            </div>
             <div class="exercise-info"><span>3 séries</span><span>15 repetições</span><span>60s descanso</span></div>
             <a href="https://www.youtube.com/results?search_query=agachamento+parcial+joelho+reabilitacao" target="_blank" class="video-btn">▶ Ver demonstração</a>
         </div>
+
         <div class="exercise-card">
             <div class="exercise-header">
                 <span class="exercise-icon">⬆️</span>
@@ -146,6 +608,7 @@
             <div class="exercise-info"><span>3 séries</span><span>15 repetições</span><span>45s descanso</span></div>
             <a href="https://www.youtube.com/results?search_query=extensao+joelho+sentado" target="_blank" class="video-btn">▶ Ver demonstração</a>
         </div>
+
         <div class="exercise-card">
             <div class="exercise-header">
                 <span class="exercise-icon">🚶</span>
@@ -155,15 +618,7 @@
             <div class="exercise-info"><span>3 séries</span><span>12 repetições</span><span>45s descanso</span></div>
             <a href="https://www.youtube.com/results?search_query=elevacao+perna+reta+quadriceps" target="_blank" class="video-btn">▶ Ver demonstração</a>
         </div>
-        <div class="exercise-card">
-            <div class="exercise-header">
-                <span class="exercise-icon">🏊</span>
-                <div><h3>Isométrico de Quadríceps</h3><span class="exercise-level">Iniciante</span></div>
-            </div>
-            <p class="exercise-desc">Ativa o quadríceps sem movimento. Sentado, contraia a coxa e segure por 10 segundos.</p>
-            <div class="exercise-info"><span>3 séries</span><span>10 contrações</span><span>30s descanso</span></div>
-            <a href="https://www.youtube.com/results?search_query=isometrico+quadriceps+joelho" target="_blank" class="video-btn">▶ Ver demonstração</a>
-        </div>
+
         <div class="exercise-card">
             <div class="exercise-header">
                 <span class="exercise-icon">🧘</span>
@@ -173,18 +628,60 @@
             <div class="exercise-info"><span>2 séries</span><span>30 segundos</span><span>30s descanso</span></div>
             <a href="https://www.youtube.com/results?search_query=alongamento+isquiotibiais+joelho" target="_blank" class="video-btn">▶ Ver demonstração</a>
         </div>
+
     </div>
 
+    <!-- ===== TORNOZELO ===== -->
     <div id="tornozelo" class="tab-content" style="display:none">
+
         <div class="exercise-card">
             <div class="exercise-header">
                 <span class="exercise-icon">🦶</span>
                 <div><h3>Elevação de Panturrilha</h3><span class="exercise-level">Iniciante</span></div>
             </div>
             <p class="exercise-desc">Fortalece panturrilha e estabiliza o tornozelo. Fique na ponta dos pés e desça lentamente.</p>
+            <div class="muscle-wrap">
+                <div class="muscle-view">
+                    <span class="muscle-label">Costas</span>
+                    <svg width="70" height="155" viewBox="0 0 70 155" xmlns="http://www.w3.org/2000/svg">
+                        <defs><linearGradient id="to1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#8B5CF6"/><stop offset="100%" stop-color="#EC4899"/></linearGradient></defs>
+                        <ellipse cx="35" cy="12" rx="9" ry="10" fill="#252535" stroke="#4B5563" stroke-width="1"/>
+                        <rect x="31" y="21" width="8" height="7" rx="2" fill="#252535" stroke="#4B5563" stroke-width=".5"/>
+                        <ellipse cx="17" cy="34" rx="9" ry="6" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <ellipse cx="53" cy="34" rx="9" ry="6" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <path d="M25 26 Q35 22 45 26 L47 38 Q35 42 23 38Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <path d="M21 28 Q35 25 49 28 L52 70 Q35 75 18 70Z" fill="#1A1A2E" stroke="#374151" stroke-width=".8"/>
+                        <path d="M13 28 Q8 33 7 46 Q9 55 13 59 Q17 55 18 46 Q20 35 17 28Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <path d="M57 28 Q62 33 63 46 Q61 55 57 59 Q53 55 52 46 Q50 35 53 28Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <path d="M21 34 Q26 32 31 38 L29 62 Q22 60 19 54Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <path d="M49 34 Q44 32 39 38 L41 62 Q48 60 51 54Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <path d="M27 55 Q35 52 43 55 L43 70 Q35 73 27 70Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <path d="M7 47 Q5 58 6 68 Q9 70 12 68 Q13 58 12 47Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <path d="M63 47 Q65 58 64 68 Q61 70 58 68 Q57 58 58 47Z" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <path d="M18 70 Q35 75 52 70 L50 84 Q35 88 20 84Z" fill="#1A1A2E" stroke="#374151" stroke-width=".5"/>
+                        <ellipse cx="26" cy="86" rx="8" ry="7" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <ellipse cx="44" cy="86" rx="8" ry="7" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <rect x="19" y="91" width="12" height="21" rx="6" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <rect x="39" y="91" width="12" height="21" rx="6" fill="#2D2D4E" stroke="#374151" stroke-width=".5"/>
+                        <ellipse cx="25" cy="114" rx="6" ry="3.5" fill="#151525" stroke="#374151" stroke-width=".5"/>
+                        <ellipse cx="45" cy="114" rx="6" ry="3.5" fill="#151525" stroke="#374151" stroke-width=".5"/>
+                        <!-- panturrilha ATIVO -->
+                        <rect x="20" y="117" width="10" height="20" rx="5" fill="url(#to1)" opacity=".9"/>
+                        <rect x="40" y="117" width="10" height="20" rx="5" fill="url(#to1)" opacity=".9"/>
+                        <ellipse cx="25" cy="139" rx="8" ry="3.5" fill="#1A1A2E" stroke="#374151" stroke-width=".5"/>
+                        <ellipse cx="45" cy="139" rx="8" ry="3.5" fill="#1A1A2E" stroke="#374151" stroke-width=".5"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="muscle-legend">
+                <span><i class="leg-primary"></i>Principal</span>
+                <span><i class="leg-secondary"></i>Secundário</span>
+                <span><i class="leg-inactive"></i>Inativo</span>
+            </div>
             <div class="exercise-info"><span>3 séries</span><span>20 repetições</span><span>45s descanso</span></div>
             <a href="https://www.youtube.com/results?search_query=elevacao+panturrilha+tornozelo" target="_blank" class="video-btn">▶ Ver demonstração</a>
         </div>
+
         <div class="exercise-card">
             <div class="exercise-header">
                 <span class="exercise-icon">🔄</span>
@@ -194,6 +691,7 @@
             <div class="exercise-info"><span>2 séries</span><span>10 círculos</span><span>30s descanso</span></div>
             <a href="https://www.youtube.com/results?search_query=cirducao+tornozelo+mobilidade" target="_blank" class="video-btn">▶ Ver demonstração</a>
         </div>
+
         <div class="exercise-card">
             <div class="exercise-header">
                 <span class="exercise-icon">🧍</span>
@@ -203,6 +701,7 @@
             <div class="exercise-info"><span>3 séries</span><span>30 segundos</span><span>30s descanso</span></div>
             <a href="https://www.youtube.com/results?search_query=equilibrio+unipodal+tornozelo" target="_blank" class="video-btn">▶ Ver demonstração</a>
         </div>
+
         <div class="exercise-card">
             <div class="exercise-header">
                 <span class="exercise-icon">↕️</span>
@@ -212,6 +711,7 @@
             <div class="exercise-info"><span>3 séries</span><span>15 repetições</span><span>30s descanso</span></div>
             <a href="https://www.youtube.com/results?search_query=flexao+plantar+dorsal+tornozelo" target="_blank" class="video-btn">▶ Ver demonstração</a>
         </div>
+
         <div class="exercise-card">
             <div class="exercise-header">
                 <span class="exercise-icon">🚶</span>
@@ -221,6 +721,7 @@
             <div class="exercise-info"><span>3 séries</span><span>10 metros</span><span>45s descanso</span></div>
             <a href="https://www.youtube.com/results?search_query=caminhada+ponta+pes+tornozelo" target="_blank" class="video-btn">▶ Ver demonstração</a>
         </div>
+
     </div>
 
 </div>

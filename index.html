@@ -2,14 +2,19 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#7b3f73" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="description" content="Seu treino, evolução e bem-estar em um só lugar." />
   <link rel="manifest" href="manifest.webmanifest" />
-  <link rel="stylesheet" href="styles.css?v=19" />
+  <link rel="apple-touch-icon" href="assets/marinafit-icon-512.png" />
+  <link rel="stylesheet" href="styles.css?v=20" />
+  <link rel="stylesheet" href="publish-fix.css?v=1" />
   <link rel="stylesheet" href="assessment.css?v=1" />
   <link rel="stylesheet" href="training.css?v=3" />
   <link rel="stylesheet" href="improvements.css?v=29" />
+  <link rel="stylesheet" href="mobile-fix.css?v=1" />
   <style>.equipment-group{margin-top:16px}.equipment-group h3{font-size:13px;margin:0}.equipment-group .hint{margin:5px 0 -4px}.urgent-panel{border-color:#e4b9bc}.guide-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}#diastasisGuideSaved{display:block;margin-top:10px;color:var(--primary);font-size:12px;font-weight:600}.daily-checkin>h2{margin-bottom:4px}.checkin-step{border-top:1px solid var(--line);margin-top:20px;padding-top:18px}.checkin-step h3{display:flex;align-items:center;gap:8px;margin-bottom:10px}.checkin-step h3 span{width:23px;height:23px;border-radius:50%;display:grid;place-items:center;background:var(--lilac);color:var(--primary);font-size:12px}.energy-choice{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin-top:8px}.energy-choice button{min-height:46px;padding:7px 9px;border:1px solid var(--line);border-radius:8px;background:var(--surface-2);color:var(--text);font-size:11px;font-weight:700;line-height:1.1;text-align:center;white-space:normal}.energy-choice button.selected{background:var(--primary);border-color:var(--primary);color:white}.sheet-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}.sheet-preview{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}.sheet-preview span{font-size:11px;padding:5px 7px;border-radius:8px;background:var(--surface-2)}.sheet-equivalents{margin-top:8px;display:flex;gap:6px;flex-wrap:wrap}.sheet-equivalents a{font-size:11px;color:var(--primary);text-decoration:none;border:1px solid var(--line);padding:5px 7px;border-radius:8px}@media(max-width:520px){.energy-choice{grid-template-columns:repeat(2,minmax(0,1fr))}.energy-choice button:last-child{grid-column:1/-1}}</style>
   <title>MarinaFit Pro</title>
 </head>
@@ -33,7 +38,7 @@
       <header class="topbar"><button class="back-button" id="appBack" aria-label="Voltar">← <span>Voltar</span></button><button class="mobile-menu" id="mobileMenu" aria-label="Abrir menu">☰</button><div class="date-label" id="todayLabel"></div><button class="icon-button" id="themeToggleMobile" aria-label="Alternar tema">◐</button></header>
 
       <section class="view active" id="dashboard">
-        <div class="hero"><div><p class="eyebrow">SEU CENTRO DE COMANDO</p><h1>Olá, <span id="welcomeName">Marina</span> ✦</h1><p>Seu treino de hoje será ajustado para como seu corpo está agora.</p><button class="primary" data-go="workout">Montar treino de hoje <span>→</span></button></div><div class="hero-orb"><span>✦</span><small>movimento<br>é cuidado</small></div></div>
+        <div class="hero"><div><p class="eyebrow">SEU CENTRO DE COMANDO</p><h1><span id="welcomePrefix">Boas-vindas</span><span id="welcomeName"></span> ✦</h1><p>Seu treino de hoje será ajustado para como seu corpo está agora.</p><button class="primary" data-go="workout">Montar treino de hoje <span>→</span></button></div><div class="hero-orb"><span>✦</span><small>movimento<br>é cuidado</small></div></div>
         <div class="checkin-card"><div><p class="eyebrow">CHECK-IN DO DIA</p><h2>Como você está se sentindo?</h2><p>Leva menos de 1 minuto e personaliza seu treino.</p></div><button class="outline" data-go="workout">Fazer check-in</button></div>
         <div class="section-heading"><div><p class="eyebrow">ACOMPANHAMENTO</p><h2>Seu progresso</h2></div><button class="text-button" data-go="progress">Ver evolução →</button></div>
         <div class="stat-grid"><button class="stat-card clickable-card" data-go="progress"><span class="stat-icon lilac">⚖</span><p>Peso atual</p><strong id="weightStat">—</strong><small id="weightTrend">Registrar ou ver histórico →</small></button><button class="stat-card clickable-card" data-go="progress"><span class="stat-icon peach">◷</span><p>Treinos concluídos</p><strong id="workoutStat">0</strong><small>Ver sua evolução →</small></button><button class="stat-card clickable-card" data-go="assessment"><span class="stat-icon mint">♧</span><p>Próxima avaliação</p><strong id="assessmentStat">—</strong><small>Preencher avaliação →</small></button></div>
@@ -61,7 +66,7 @@
   <dialog id="modal"><form method="dialog" id="modalForm"><button class="modal-close" value="cancel" aria-label="Fechar">×</button><div id="modalContent"></div></form></dialog><div class="toast" id="toast" role="status"></div>
   <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-  <script src="app.js?v=80"></script>
-  <script src="training.js?v=34"></script>
+  <script src="app.js?v=81"></script>
+  <script src="training.js?v=35"></script>
 </body>
 </html>

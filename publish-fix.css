@@ -1,0 +1,5 @@
+/* Status visual temporário: notificações ainda não podem ser agendadas de forma confiável neste PWA estático. */
+#profile .switch-row:first-of-type input{display:none}
+#profile .switch-row:first-of-type span{margin-left:auto;max-width:300px;text-align:right;line-height:1.4;font-size:0}
+#profile .switch-row:first-of-type span::after{content:"Indisponível nesta versão web";font-size:11px;color:var(--muted)}
+@media(max-width:520px){#profile .switch-row:first-of-type span{max-width:190px}}

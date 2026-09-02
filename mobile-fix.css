@@ -1,0 +1,32 @@
+/* Ajustes de interface para o app instalado em iPhone e Android. */
+.brand-mark{background-size:cover;background-position:center}
+@media (max-width:850px){
+  html,body{min-height:100%;min-height:100dvh;overflow-x:hidden}
+  .main-content{padding-bottom:calc(84px + env(safe-area-inset-bottom))}
+  .bottom-nav{min-height:calc(64px + env(safe-area-inset-bottom));box-sizing:border-box;padding:8px 4px calc(8px + env(safe-area-inset-bottom));align-items:center}
+  .bottom-nav button{flex:1;min-width:0;line-height:1.05}
+  .bottom-nav span{font-size:9px;white-space:nowrap}
+
+  #workout .today-program,#workout .today-program-actions,#workout .today-program-actions label,#workout .planned-workout,#workout .planned-exercise,#workout .planned-exercise-top>div{min-width:0;max-width:100%}
+  #workout .today-program-actions{display:grid;grid-template-columns:1fr;gap:10px;width:100%}
+  #workout .today-program-actions select{width:100%;max-width:100%}
+  #workout .week-preview{display:flex;grid-template-columns:none;max-width:100%;overflow-x:auto;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
+  #workout .week-day{flex:0 0 64px;min-width:64px}
+}
+
+@media (max-width:620px){
+  #nutrition .recipe-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  #nutrition .recipe .recipe-top{padding:13px;font-size:28px}
+  #nutrition .recipe>div:last-child{padding:11px}
+  #nutrition .recipe h3{font-size:15px;line-height:1.15}
+  #nutrition .recipe p{font-size:10px}
+  #nutrition .recipe .text-button{font-size:12px}
+}
+
+@media (max-width:370px){
+  #nutrition .recipe-grid{gap:8px}
+  #nutrition .recipe .recipe-top{padding:10px;font-size:24px}
+  #nutrition .recipe>div:last-child{padding:9px}
+  #nutrition .recipe h3{font-size:13px}
+  #nutrition .recipe p,#nutrition .recipe .text-button{font-size:10px}
+}
